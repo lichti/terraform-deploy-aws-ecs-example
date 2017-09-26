@@ -1,0 +1,28 @@
+[
+  {
+    "cpu": 256,
+    "essential": true,
+    "image": "${image_url}",
+    "memory": 512,
+    "name": "${container_name}",
+    "environment": [
+      {
+          "name": "TOKEN",
+          "value": "${token}"
+      }
+    ],
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 8000
+      }
+    ],
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "${log_group_name}",
+            "awslogs-region": "${log_group_region}"
+        }
+    }
+  }
+]
